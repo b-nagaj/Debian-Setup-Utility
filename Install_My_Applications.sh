@@ -16,7 +16,7 @@ HOMEBANK="homebank"
 SPOTIFY="spotify-client"
 SUBLIME="sublime-text"
 GNOME_TWEAKS="gnome-tweaks"
-GIT="git"
+GIT="git gitk"
 
 DBEAVER="*dbeaver-ce*.deb"
 BITWARDEN="*Bitwarden*.deb"
