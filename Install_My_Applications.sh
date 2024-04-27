@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# aliases
+# directory aliases
 JETBRAINS_TOOLBOX_DIRECTORY=$(find -name "*jetbrains-toolbox*" -type d)
 
+# programming library aliases
 SNAP="snapd"
 CURL="curl"
 C_PLUS_PLUS="build-essential"
@@ -10,6 +11,8 @@ MAKE="make"
 BOOST="libboost-all-dev"
 MY_SQL="default-libmysqlclient-dev"
 NODE="nodejs"
+
+# application aliases
 VIM="vim"
 THUNDERBIRD="thunderbird"
 HOMEBANK="homebank"
@@ -18,6 +21,7 @@ SUBLIME="sublime-text"
 GNOME_TWEAKS="gnome-tweaks"
 GIT="git gitk"
 
+# .deb package aliases
 DBEAVER="*dbeaver-ce*.deb"
 BITWARDEN="*Bitwarden*.deb"
 GOOGLE_CHROME="*google-chrome-stable*.deb"
@@ -25,6 +29,7 @@ OBSIDIAN="*obsidian*.deb"
 VISUAL_STUDIO_CODE="*code*.deb"
 VERACRYPT="*veracrypt*.deb"
 
+# .tar package aliases
 JETBRAINS_TOOLBOX="*jetbrains-toolbox*.tar.gz"
 
 # update package manager
