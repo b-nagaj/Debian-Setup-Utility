@@ -38,12 +38,16 @@ A list of applications that the installation script installs on your machine
 - Make
 - Boost
 - MySQL Client
+- NodeJS
 - Vim
 - Thunderbird Mail
 - HomeBank
 - Spotify
 - Sublime Text
 - Gnome Tweaks
+- Git
+- Gitk
+- Okular
 - Dbeaver Community Edition
 - Bitwarden
 - Google Chrome
@@ -51,3 +55,4 @@ A list of applications that the installation script installs on your machine
 - Obsidian
 - Visual Studio Code
 - VeraCrypt
+- Jetbrains toolbox
