@@ -20,6 +20,7 @@ SPOTIFY="spotify-client"
 SUBLIME="sublime-text"
 GNOME_TWEAKS="gnome-tweaks"
 GIT="git gitk"
+OKULAR="okular"
 
 # .deb package aliases
 DBEAVER="*dbeaver-ce*.deb"
@@ -53,7 +54,7 @@ install_applications() {
     wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
     echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
     update_package_manager
-    sudo apt install $VIM $THUNDERBIRD $HOMEBANK $SPOTIFY $SUBLIME $GNOME_TWEAKS $GIT -y
+    sudo apt install $VIM $THUNDERBIRD $HOMEBANK $SPOTIFY $SUBLIME $GNOME_TWEAKS $GIT $OKULAR -y
 
     # .deb packages
     sudo apt install libccid libpcre2-32-0 libwxbase3.2-1 libwxgtk3.2-1 pcscd
