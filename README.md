@@ -39,6 +39,7 @@ A list of applications that the installation script installs on your machine
 - Boost
 - MySQL Client
 - NodeJS
+- NPM
 - Vim
 - Thunderbird Mail
 - HomeBank
@@ -47,6 +48,7 @@ A list of applications that the installation script installs on your machine
 - Gnome Tweaks
 - Git
 - Gitk
+- Gh
 - Okular
 - Dbeaver Community Edition
 - Bitwarden
