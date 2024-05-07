@@ -19,7 +19,7 @@ HOMEBANK="homebank"
 SPOTIFY="spotify-client"
 SUBLIME="sublime-text"
 GNOME_TWEAKS="gnome-tweaks"
-GIT="git gitk"
+GIT="git gitk gh"
 OKULAR="okular"
 
 # .deb package aliases
@@ -53,6 +53,13 @@ install_applications() {
     echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
     wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
     echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+    (type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
+    && sudo mkdir -p -m 755 /etc/apt/keyrings \
+    && wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+    && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+    && sudo apt update \
+    && sudo apt install gh -y
     update_package_manager
     sudo apt install $VIM $THUNDERBIRD $HOMEBANK $SPOTIFY $SUBLIME $GNOME_TWEAKS $GIT $OKULAR -y
 
