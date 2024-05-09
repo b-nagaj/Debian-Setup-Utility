@@ -12,6 +12,7 @@ BOOST="libboost-all-dev"
 MY_SQL="default-libmysqlclient-dev"
 NODE="nodejs"
 NPM="npm"
+RUBY="ruby"
 
 # application aliases
 VIM="vim"
@@ -44,7 +45,7 @@ install_prerequisites() {
 
 install_programming_libraries() {
     curl -fsSL https://deb.nodesource.com/setup_22.x
-    sudo apt install $C_PLUS_PLUS $MAKE $BOOST $MY_SQL $NODE $NPM -y
+    sudo apt install $C_PLUS_PLUS $MAKE $BOOST $MY_SQL $NODE $NPM $RUBY -y
 }
 
 install_applications() {

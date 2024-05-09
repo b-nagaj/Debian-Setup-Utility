@@ -40,6 +40,7 @@ A list of applications that the installation script installs on your machine
 - MySQL Client
 - NodeJS
 - NPM
+- Ruby
 - Vim
 - Thunderbird Mail
 - HomeBank
