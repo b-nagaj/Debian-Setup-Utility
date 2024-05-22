@@ -29,18 +29,23 @@ Inside a terminal, execute the script using the following command.
 
 ## Current List of Applications
 
-A list of applications that the installation script installs on your machine
+A list of libraries & applications that the installation script installs on your machine
 
-- snap - software packaging and deployment system
-- curl
+### Libraries
+
+- Snap
+- Curl
 - C/C++ developer tools
 - NodeJS
 - Make
 - Boost
 - MySQL Client
-- NodeJS
 - NPM
 - Ruby
+- NFS
+
+### Applications
+
 - Vim
 - Thunderbird Mail
 - HomeBank
