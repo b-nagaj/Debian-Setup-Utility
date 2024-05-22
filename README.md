@@ -43,6 +43,7 @@ A list of libraries & applications that the installation script installs on your
 - NPM
 - Ruby
 - NFS
+- Rsync
 
 ### Applications
 
