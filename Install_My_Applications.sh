@@ -14,6 +14,7 @@ NODE="nodejs"
 NPM="npm"
 RUBY="ruby"
 NFS="nfs-common"
+RSYNC="rsync"
 
 # application aliases
 VIM="vim"
@@ -46,7 +47,7 @@ install_prerequisites() {
 
 install_programming_libraries() {
     curl -fsSL https://deb.nodesource.com/setup_22.x
-    sudo apt install $C_PLUS_PLUS $MAKE $BOOST $MY_SQL $NODE $NPM $RUBY $NFS -y
+    sudo apt install $C_PLUS_PLUS $MAKE $BOOST $MY_SQL $NODE $NPM $RUBY $NFS $RSYNC -y
 }
 
 install_applications() {
