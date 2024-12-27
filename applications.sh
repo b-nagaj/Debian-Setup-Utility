@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Variables
+DOWNLOADS_DIRECTORY="downloads/"
+
 # Installs a static list of applications
 install() {
     # Curl
@@ -30,15 +33,15 @@ install() {
     sudo flatpak install flathub com.bitwarden.desktop
 
     # Obsidian
-    wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.7.7/obsidian_1.7.7_amd64.deb
+    wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.7.7/obsidian_1.7.7_amd64.deb -P $DOWNLOADS_DIRECTORY
     sudo dpkg -i obsidian_1.7.7_amd64.deb
 
     # Proton Mail
-    wget https://proton.me/download/mail/linux/1.6.1/ProtonMail-desktop-beta.deb
+    wget https://proton.me/download/mail/linux/1.6.1/ProtonMail-desktop-beta.deb -P $DOWNLOADS_DIRECTORY
     sudo dpkg -i ProtonMail-desktop-beta.deb
 
     # Proton VPN
-    wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.6_all.deb
+    wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.6_all.deb -P $DOWNLOADS_DIRECTORY
     sudo dpkg -i protonvpn-stable-release_1.0.6_all.deb
     sudo apt update
     sudo apt install proton-vpn-gnome-desktop
@@ -53,11 +56,11 @@ install() {
     sudo apt install spotify-client
 
     # DBeaver
-    wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
+    wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -P $DOWNLOADS_DIRECTORY
     sudo dpkg -i dbeaver-ce_latest_amd64.deb
 
     # VeraCrypt
-    wget https://launchpad.net/veracrypt/trunk/1.26.14/+download/veracrypt-1.26.14-Debian-12-amd64.deb
+    wget https://launchpad.net/veracrypt/trunk/1.26.14/+download/veracrypt-1.26.14-Debian-12-amd64.deb -P $DOWNLOADS_DIRECTORY
     sudo apt install libwxgtk3.2-1
     sudo dpkg -i veracrypt-1.26.14-Debian-12-amd64.deb
 
