@@ -78,6 +78,7 @@ install() {
     sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 gnome-shell-extension-appindicator
 }
 
+# Entry point
 main() {
     echo "Installing your applications..."
     install
