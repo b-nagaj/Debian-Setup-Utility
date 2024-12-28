@@ -83,3 +83,5 @@ main() {
     install
     echo "Done!"
 }
+
+main
