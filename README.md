@@ -1,21 +1,39 @@
 # Debian-Setup-Utility
 
-A powerful shell utility that helps you install many applications at once on any linux machine running Debian
+A powerful shell utility that helps you install many applications at once on any linux machine running Debian 12 (Bookworm) GNU/Linux.
 
-## Prerequisites
-
-1. You must be logged in as a user who is listed in the sudoers file on your system
-
-2. make sure you've given the _main.sh_ file executable privileges by running the following command in a terminal
-
-```
-sudo chmod +x main.sh
-```
+Reference the [Current List of Applications](#applicatoins) section of this document for a list of software that will be installed on your machine after running the script.
 
 ## Run the Script
 
-Inside a terminal, execute the script using the following command.
+**NOTE** Sudo privileges are required to install new software on your machine. Make sure you're logged in as a user that's listed in the */etc/sudoers* file on your machine.
+
+Inside a terminal, execute the script using the following commands
 
 ```
+sudo chmod +x main.sh
 sudo ./main.sh
 ```
+
+<div id="applications"></div>
+## Current List of Applications
+
+- Curl
+- Flatpak
+- Nala
+- Git
+- GitK
+- NodeJS
+- Brave
+- Bitwarden
+- Obsidian
+- Proton Mail
+- Proton VPN
+- HomeBank
+- Spotify
+- DBeaver
+- VeraCrypt
+- Okular
+- Visual Studio Code
+- GNOME Tray Icons
+- Sublime Text
