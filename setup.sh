@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# NOTE: This needs to be run using the root user on your system
+# Completes necessary prerequisites for installing new software
 
 # Fetches all of the latest updates for packages
 update_package_manager() {

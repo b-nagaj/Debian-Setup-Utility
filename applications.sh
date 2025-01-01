@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Installs each application listed in -> https://github.com/b-nagaj/Debian-Setup-Utility/tree/main?tab=readme-ov-file#current-list-of-applications
+
 # Variables
 DOWNLOADS_DIRECTORY="downloads/"
 
