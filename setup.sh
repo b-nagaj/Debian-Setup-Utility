@@ -2,11 +2,6 @@
 
 # NOTE: This needs to be run using the root user on your system
 
-# Adds a user to the sudoers list
-update_sudoers_list() {
-    echo 'bryce  ALL=(ALL:ALL) ALL' >> /etc/sudoers
-}
-
 # Fetches all of the latest updates for packages
 update_package_manager() {
     sudo apt update
@@ -29,7 +24,6 @@ create_downloads_directory() {
 
 # Entry point
 main() {
-    update_sudoers_list
     update_package_manager
     upgrade_package_manager
     create_nfs_mount
