@@ -9,7 +9,7 @@ A powerful shell utility that helps you install many applications at once on any
 2. make sure you've given the _main.sh_ file executable privileges by running the following command in a terminal
 
 ```
-sudo chmod +x Install_My_Applications.sh
+sudo chmod +x main.sh
 ```
 
 ## Running the Installation Script
