@@ -12,12 +12,12 @@ A powerful shell utility that helps you install many applications at once on any
 sudo chmod +x main.sh
 ```
 
-## Running the Installation Script
+## Run the Script
 
 Inside a terminal, execute the script using the following command.
 
 ```
-./Install_My_Applications.sh
+sudo ./main.sh
 ```
 
 ## Current List of Applications
