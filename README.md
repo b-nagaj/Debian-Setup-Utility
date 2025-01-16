@@ -36,3 +36,9 @@ sudo ./main.sh
 - Visual Studio Code
 - GNOME Tray Icons
 - Sublime Text
+- G++
+- GNU Make
+- Boost
+- OpenSSL
+- JsonCpp
+- MySQL
