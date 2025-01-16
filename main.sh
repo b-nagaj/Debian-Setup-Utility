@@ -4,8 +4,9 @@
 
 # Entry point
 main() {
-	./setup.sh
+	./updatePackageManager.sh
 	./applications.sh
+	./configureNFS.sh
 }
 
 main

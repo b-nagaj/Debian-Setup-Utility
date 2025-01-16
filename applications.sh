@@ -5,6 +5,11 @@
 # Variables
 DOWNLOADS_DIRECTORY="downloads/"
 
+# Create a directory to store .deb packages
+create_downloads_directory() {
+    mkdir $DOWNLOADS_DIRECTORY
+}
+
 # Installs a static list of applications
 install() {
     # Curl
@@ -107,6 +112,7 @@ install() {
 # Entry point
 main() {
     echo "Installing your applications..."
+    create_downloads_directory
     install
     echo "Done!"
 }
