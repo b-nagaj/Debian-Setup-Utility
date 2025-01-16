@@ -84,6 +84,24 @@ install() {
     echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
     sudo apt update
     sudo apt install sublime-text
+
+    # g++
+    sudo apt install g++
+
+    # GNU Make
+    sudo apt install make
+
+    # Boost
+    sudo apt install libboost-all-dev
+
+    # OpenSSL
+    sudo apt install libboost-all-dev
+
+    # JsonCpp
+    sudo apt install ibcurl4-openssl-dev
+
+    # MySQL
+    sudo apt install default-libmysqlclient-dev
 }
 
 # Entry point
