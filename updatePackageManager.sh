@@ -9,7 +9,7 @@ update_package_manager() {
 
 # Entry point
 main() {
-	echo "Fetching packages from Debian 12 software repositories"
+	echo "Fetching packages from Debian 12 software repositories..."
 	update_package_manager
 	echo "Packages fetched"
 }

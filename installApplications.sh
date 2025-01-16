@@ -114,7 +114,7 @@ main() {
     echo "Installing your applications..."
     create_downloads_directory
     install
-    echo "Done!"
+    echo "Installed"
 }
 
 main

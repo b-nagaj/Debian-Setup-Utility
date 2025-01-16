@@ -4,9 +4,11 @@
 
 # Entry point
 main() {
+	echo "Setting up your new Debian machine..."
 	./updatePackageManager.sh
 	./applications.sh
 	./configureNFS.sh
+	echo "Done!"
 }
 
 main

@@ -19,7 +19,10 @@ mount() {
 
 # Entry point
 main() {
+	echo "Establishing a connection with a local NFS..."
 	create_mount()
+	mount()
+	echo "Connection established"
 }
 
 main
