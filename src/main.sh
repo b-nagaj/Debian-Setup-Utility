@@ -17,7 +17,7 @@ main() {
 	update_package_manager
 	install
 
-	# Custom Configurations
+	# Enforce Custom Configurations
 	configure_git_global_options
 	create_nfs_mount_point
 	mount_nfs
