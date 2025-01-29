@@ -1,6 +1,6 @@
 # Debian-Setup-Utility
 
-A powerful shell utility that helps you install many applications at once on any linux machine running Debian 12 (Bookworm) GNU/Linux.
+Easily set up your new Linux machine running Debian 12 (Bookworm) GNU/Linux! 
 
 Reference the [Current List of Applications](https://github.com/b-nagaj/Debian-Setup-Utility/tree/main?tab=readme-ov-file#current-list-of-applications) section of this document for a list of software that will be installed on your machine after running the script.
 
