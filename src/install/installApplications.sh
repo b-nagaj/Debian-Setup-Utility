@@ -2,11 +2,6 @@
 
 # Installs each application listed in -> https://github.com/b-nagaj/Debian-Setup-Utility/tree/main?tab=readme-ov-file#current-list-of-applications
 
-# Import local modules
-. ../configure/configureGit.sh
-. ../configure/configureGrub.sh
-. ../configure/configureNFS.sh
-
 # Constants
 DOWNLOADS_DIRECTORY="downloads/"
 
@@ -15,7 +10,7 @@ create_downloads_directory() {
     mkdir $DOWNLOADS_DIRECTORY
 }
 
-# Installs a static list of applications
+# Install a static list of applications
 install() {
     echo "Installing your applications..."
     create_downloads_directory
