@@ -8,21 +8,15 @@ HOST = 192.168.50.190
 NFS_SHARE_DIRECTORY = $MOUNT_POINT
 
 # Create a mount point
-create_mount() {
+create_nfs_mount_point() {
+	echo "Creating a mount point for a local NFS at $MOUNT_POINT"
 	mkdir $MOUNT_POINT
+	echo "Directory created"
 }
 
 # Mount the NFS
-mount() {
-	sudo mount $HOST:$NFS_SHARE_DIRECTORY
-}
-
-# Entry point
-main() {
+mount_nfs() {
 	echo "Establishing a connection with a local NFS..."
-	create_mount()
-	mount()
+	sudo mount $HOST:$NFS_SHARE_DIRECTORY
 	echo "Connection established"
 }
-
-main

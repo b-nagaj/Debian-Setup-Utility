@@ -1,8 +1,10 @@
 # Debian-Setup-Utility
 
-Easily set up your new Linux machine running Debian 12 (Bookworm) GNU/Linux! 
+Easily set up & configure a new Linux machine running Debian 12 (Bookworm) GNU/Linux!
 
-Reference the [Current List of Applications](https://github.com/b-nagaj/Debian-Setup-Utility/tree/main?tab=readme-ov-file#current-list-of-applications) section of this document for a list of software that will be installed on your machine after running the script.
+Reference the [Current List of Applications](https://github.com/b-nagaj/Debian-Setup-Utility/tree/main?tab=readme-ov-file#current-list-of-applications) section of this document
+for a list of software that **will be installed** on your machine after running
+the main script.
 
 ## Run the Script
 
@@ -33,7 +35,6 @@ sudo ./main.sh
 - DBeaver
 - VeraCrypt
 - Okular
-- Visual Studio Code
 - GNOME Tray Icons
 - Sublime Text
 - G++
@@ -42,3 +43,4 @@ sudo ./main.sh
 - OpenSSL
 - JsonCpp
 - MySQL
+- Grub
