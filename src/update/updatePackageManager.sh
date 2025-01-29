@@ -4,14 +4,7 @@
 
 # Fetches all of the latest updates for packages
 update_package_manager() {
-    sudo apt update
-}
-
-# Entry point
-main() {
 	echo "Fetching packages from Debian 12 software repositories..."
-	update_package_manager
+    sudo apt update
 	echo "Packages fetched"
 }
-
-main

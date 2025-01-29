@@ -2,7 +2,12 @@
 
 # Installs each application listed in -> https://github.com/b-nagaj/Debian-Setup-Utility/tree/main?tab=readme-ov-file#current-list-of-applications
 
-# Variables
+# Import local modules
+. ../configure/configureGit.sh
+. ../configure/configureGrub.sh
+. ../configure/configureNFS.sh
+
+# Constants
 DOWNLOADS_DIRECTORY="downloads/"
 
 # Create a directory to store .deb packages
@@ -12,6 +17,9 @@ create_downloads_directory() {
 
 # Installs a static list of applications
 install() {
+    echo "Installing your applications..."
+    create_downloads_directory
+
     # Curl
     sudo apt install curl
 
@@ -110,15 +118,5 @@ install() {
 
     # Grub
     sudo apt install grub
-    configure_grub
-}
-
-# Entry point
-main() {
-    echo "Installing your applications..."
-    create_downloads_directory
-    install
     echo "Installed"
 }
-
-main
