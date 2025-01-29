@@ -107,6 +107,10 @@ install() {
 
     # MySQL
     sudo apt install default-libmysqlclient-dev
+
+    # Grub
+    sudo apt install grub
+    configure_grub
 }
 
 # Entry point
