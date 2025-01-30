@@ -3,8 +3,8 @@
 # Runs each component of the setup utility in a sequential fashion
 
 # Import local modules
-. ./update/updatePackageManager.sh
-. ./install/installApplications.sh
+. ./packages/updatePackageManager.sh
+. ./packages/installApplications.sh
 . ./configure/configureGit.sh
 . ./configure/configureGrub.sh
 . ./configure/configureNFS.sh
