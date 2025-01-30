@@ -4,7 +4,8 @@
 
 # Import local modules
 . ./packages/updatePackageManager.sh
-. ./packages/installApplications.sh
+. ./packages/installPackages.sh
+. ./packages/purgePackages.sh
 . ./configure/configureGit.sh
 . ./configure/configureGrub.sh
 . ./configure/configureNFS.sh
@@ -13,11 +14,12 @@
 main() {
 	echo "Setting up your new Debian machine..."
 
-	# Install/uninstall applications
+	# Manage packages
 	update_package_manager
 	install
+	purge
 
-	# Enforce Custom Configurations
+	# Enforce custom configurations
 	configure_git_global_options
 	create_nfs_mount_point
 	mount_nfs
