@@ -44,3 +44,5 @@ sudo ./main.sh
 - JsonCpp
 - MySQL
 - Grub
+- Linux Kernel Headers
+- Nvidia Drivers

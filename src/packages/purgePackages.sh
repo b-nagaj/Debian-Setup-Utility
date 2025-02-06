@@ -3,6 +3,9 @@
 # Purges a list of packages that come shipped with Debian 12 (Bookworm)
 # GNU/Linux by default
 
+# Constants
+PURGE="sudo apt purge --autoremove"
+
 # Associative Array
 declare -A purgeList
 
@@ -41,14 +44,11 @@ initialize_purge_list() {
 
 # Purges a list of packages and removes their configuration files
 purge() {
-	initialize_purge_list
-
 	echo "Purging applications..."
-
+	initialize_purge_list
 	for key in "${!purgeList[@]}"
 	do
-		sudo apt purge --autoremove "${purgeList[$key]}" -y
+		$PURGE "${purgeList[$key]}" -y
 	done
-
 	echo "Purged"
 }

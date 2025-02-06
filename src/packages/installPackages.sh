@@ -2,7 +2,12 @@
 
 # Installs each application listed in -> https://github.com/b-nagaj/Debian-Setup-Utility/tree/main?tab=readme-ov-file#current-list-of-applications
 
-# Constants
+# Operations
+INSTALL="sudo apt install"
+UPDATE="sudo apt update"
+UNPACK="sudo dpkg -i"
+
+# Directories
 DOWNLOADS_DIRECTORY="downloads/"
 TRUSTED_KEYRINGS="/etc/apt/trusted.gpg.d"
 APT_REPOSITORIES="/etc/apt/sources.list.d"
@@ -24,84 +29,108 @@ SUBLIME_TEXT_GPG="https://download.sublimetext.com/sublimehq-pub.gpg"
 # Repositories
 SPOTIFY_REPOSITORY="deb http://repository.spotify.com stable non-free"
 SUBLIME_TEXT_REPOSITORY="deb https://download.sublimetext.com/ apt/stable/"
+NVIDIA_DRIVERS_REPOSITORY="deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware"
 
-# Create a directory to store .deb packages
+# Create a dedicated directory for software downloaded from the web
 create_downloads_directory() {
+    echo "Creating a directory for downloads..."
     mkdir $DOWNLOADS_DIRECTORY
-    cd $DOWNLOADS_DIRECTORY
+    echo "Created"
 }
 
-# Install a static list of applications
+# Download packages from source
+download_sources() {
+    echo "Downloading packages from source..."
+    curl -o- $NODE_SOURCE | bash
+    curl -fsS $BRAVE_SOURCE | sh
+    wget $OBSIDIAN_SOURCE -P $DOWNLOADS_DIRECTORY
+    wget $PROTON_MAIL_SOURCE -P $DOWNLOADS_DIRECTORY
+    wget $PROTON_VPN_SOURCE -P $DOWNLOADS_DIRECTORY
+    wget $DBEAVER_CE_SOURCE -P $DOWNLOADS_DIRECTORY
+    wget $VERACRYPT_SOURCE -P $DOWNLOADS_DIRECTORY
+    echo "Downloaded"
+}
+
+# Download GPG keys
+download_gpg_keys() {
+    echo "Downloading GPG keys..."
+    curl -sS $SPOTIFY_GPG | sudo gpg --dearmor --yes -o $TRUSTED_KEYRINGS/spotify.gpg
+    wget -qO - $SUBLIME_TEXT_GPG | gpg --dearmor | sudo tee $TRUSTED_KEYRINGS/sublimehq-archive.gpg > /dev/null
+    echo "Downloaded"
+}
+
+# Update software repositories
+update_software_repositories() {
+    echo "Updating software repositories..."
+    echo $SPOTIFY_REPOSITORY | sudo tee $APT_REPOSITORIES/spotify.list
+    echo $SUBLIME_TEXT_REPOSITORY | sudo tee $APT_REPOSITORIES/sublime-text.list
+    echo $NVIDIA_DRIVERS_REPOSITORY >> $APT_REPOSITORIES
+    $UPDATE
+    echo "Updated"
+}
+
+# Install packages with apt
+install_apt_packages() {
+    echo "Installing packages using apt..."
+    $INSTALL curl
+    $INSTALL flatpak
+    $INSTALL gnome-software-plugin-flatpak
+    $INSTALL nala
+    $INSTALL git
+    $INSTALL gitk
+    $INSTALL homebank
+    $INSTALL okular
+    $INSTALL libayatana-appindicator3-1
+    $INSTALL gir1.2-ayatanaappindicator3-0.1
+    $INSTALL gnome-shell-extension-appindicator
+    $INSTALL g++
+    $INSTALL make
+    $INSTALL libboost-all-dev
+    $INSTALL default-libmysqlclient-dev
+    $INSTALL ibcurl4-openssl-dev
+    $INSTALL libjsoncpp-dev
+    $INSTALL grub
+    $INSTALL linux-headers-amd64
+    $INSTALL proton-vpn-gnome-desktop
+    $INSTALL spotify-client
+    $INSTALL libwxgtk3.2-1
+    $INSTALL sublime-text
+    $INSTALL nvidia-driver
+    $INSTALL firmware-misc-nonfree
+    echo "Installed"
+}
+
+# Install packages with flatpak
+install_flatpaks() {
+    echo "Installing packages using flatpak..."
+    sudo flatpak remote-add --if-not-exists flathub $FLATHUB_SOURCE
+    sudo flatpak install flathub com.bitwarden.desktop
+    echo "Installed"
+}
+
+# Install packages from source
+install_source() {
+    echo "Installing packages from source..."
+    cd $DOWNLOADS_DIRECTORY
+    nvm install 22
+    $UNPACK $(basename "$OBSIDIAN_SOURCE")
+    $UNPACK $(basename "$PROTON_MAIL_SOURCE")
+    $UNPACK $(basename "$PROTON_VPN_SOURCE")
+    $UNPACK $(basename "$DBEAVER_CE_SOURCE")
+    $UNPACK $(basename "$VERACRYPT_SOURCE")
+    cd ../
+    echo "Installed"
+}
+
+# Install applications
 install() {
     echo "Installing your applications..."
     create_downloads_directory
-
-    # Curl
-    sudo apt install curl
-    # Flatpak
-    sudo apt install flatpak
-    sudo apt install gnome-software-plugin-flatpak
-    sudo flatpak remote-add --if-not-exists flathub $FLATHUB_SOURCE
-    # Nala
-    sudo apt install nala
-    # Git
-    sudo apt install git
-    # GitK
-    sudo apt install gitk
-    # Node
-    curl -o- $NODE_SOURCE | bash
-    nvm install 22
-    # Brave
-    curl -fsS $BRAVE_SOURCE | sh
-    # Bitwarden
-    sudo flatpak install flathub com.bitwarden.desktop
-    # Obsidian
-    wget $OBSIDIAN_SOURCE -P $DOWNLOADS_DIRECTORY
-    sudo dpkg -i $(basename "$OBSIDIAN_SOURCE")
-    # Proton Mail
-    wget $PROTON_MAIL_SOURCE -P $DOWNLOADS_DIRECTORY
-    sudo dpkg -i $(basename "$PROTON_MAIL_SOURCE")
-    # Proton VPN
-    wget $PROTON_VPN_SOURCE -P $DOWNLOADS_DIRECTORY
-    sudo dpkg -i $PROTON_VPN_SOURCE
-    sudo apt update
-    sudo apt install proton-vpn-gnome-desktop
-    # HomeBank
-    sudo apt-get install homebank
-    # Spotify
-    curl -sS $SPOTIFY_GPG | sudo gpg --dearmor --yes -o $TRUSTED_KEYRINGS/spotify.gpg
-    echo $SPOTIFY_REPOSITORY | sudo tee $APT_REPOSITORIES/spotify.list
-    sudo apt update
-    sudo apt install spotify-client
-    # DBeaver
-    wget $DBEAVER_CE_SOURCE -P $DOWNLOADS_DIRECTORY
-    sudo dpkg -i $(basename "$DBEAVER_CE_SOURCE")
-    # VeraCrypt
-    wget $VERACRYPT_SOURCE -P $DOWNLOADS_DIRECTORY
-    sudo apt install libwxgtk3.2-1
-    sudo dpkg -i $(basename "$VERACRYPT_SOURCE")
-    # Okular
-    sudo apt install okular
-    # Gnome Tray Icons
-    sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 gnome-shell-extension-appindicator
-    # Sublime Text
-    wget -qO - $SUBLIME_TEXT_GPG | gpg --dearmor | sudo tee $TRUSTED_KEYRINGS/sublimehq-archive.gpg > /dev/null
-    echo $SUBLIME_TEXT_REPOSITORY | sudo tee $APT_REPOSITORIES/sublime-text.list
-    sudo apt update
-    sudo apt install sublime-text
-    # g++
-    sudo apt install g++
-    # GNU Make
-    sudo apt install make
-    # Boost
-    sudo apt install libboost-all-dev
-    # OpenSSL
-    sudo apt install libboost-all-dev
-    # JsonCpp
-    sudo apt install ibcurl4-openssl-dev
-    # MySQL
-    sudo apt install default-libmysqlclient-dev
-    # Grub
-    sudo apt install grub
+    download_sources
+    download_gpg_keys
+    update_software_repositories
+    install_apt_packages
+    install_flatpaks
+    install_source
     echo "Installed"
 }
