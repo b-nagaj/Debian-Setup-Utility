@@ -103,5 +103,8 @@ install() {
     sudo apt install default-libmysqlclient-dev
     # Grub
     sudo apt install grub
+    # AMD64 Kernel Headers
+    sudo apt install linux-headers-amd64
+
     echo "Installed"
 }
