@@ -13,7 +13,6 @@
 # Entry point
 main() {
 	echo "Setting up your new Debian machine..."
-
 	# Manage packages
 	update_package_manager
 	install
@@ -24,7 +23,6 @@ main() {
 	create_nfs_mount_point
 	mount_nfs
 	configure_grub
-
 	echo "Done!"
 }
 
