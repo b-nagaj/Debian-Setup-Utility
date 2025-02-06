@@ -31,14 +31,14 @@ SPOTIFY_REPOSITORY="deb http://repository.spotify.com stable non-free"
 SUBLIME_TEXT_REPOSITORY="deb https://download.sublimetext.com/ apt/stable/"
 NVIDIA_DRIVERS_REPOSITORY="deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware"
 
-# Create a dedicated directory software downloaded from the web
+# Create a dedicated directory for software downloaded from the web
 create_downloads_directory() {
     echo "Creating a directory for downloads..."
     mkdir $DOWNLOADS_DIRECTORY
     echo "Created"
 }
 
-# Download software from source
+# Download packages from source
 download_sources() {
     echo "Downloading packages from source..."
     curl -o- $NODE_SOURCE | bash
@@ -108,6 +108,7 @@ install_flatpaks() {
     echo "Installed"
 }
 
+# Install packages from source
 install_source() {
     echo "Installing packages from source..."
     cd $DOWNLOADS_DIRECTORY
@@ -121,7 +122,7 @@ install_source() {
     echo "Installed"
 }
 
-# Install a static list of applications
+# Install applications
 install() {
     echo "Installing your applications..."
     create_downloads_directory
