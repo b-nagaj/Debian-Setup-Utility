@@ -6,6 +6,7 @@
 . ./packages/updatePackageManager.sh
 . ./packages/installPackages.sh
 . ./packages/purgePackages.sh
+. ./packages/upgradePackageManager.sh
 . ./configure/configureGit.sh
 . ./configure/configureGrub.sh
 . ./configure/configureNFS.sh
@@ -17,6 +18,7 @@ main() {
 	update_package_manager
 	install
 	purge
+	upgrade_package_manager
 
 	# Enforce custom configurations
 	configure_git_global_options
