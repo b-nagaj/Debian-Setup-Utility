@@ -48,3 +48,4 @@ sudo ./main.sh
 - Grub
 - Linux Kernel Headers
 - Nvidia Drivers
+- Git Cola
