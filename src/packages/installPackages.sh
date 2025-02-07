@@ -97,6 +97,7 @@ install_apt_packages() {
     $INSTALL sublime-text
     $INSTALL nvidia-driver
     $INSTALL firmware-misc-nonfree
+    $INSTALL git-cola
     echo "Installed"
 }
 
