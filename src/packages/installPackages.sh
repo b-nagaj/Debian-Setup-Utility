@@ -23,7 +23,7 @@ DBEAVER_CE_SOURCE="https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb"
 VERACRYPT_SOURCE="https://launchpad.net/veracrypt/trunk/1.26.14/+download/veracrypt-1.26.14-Debian-12-amd64.deb"
 
 # GPG Keys
-SPOTIFY_GPG="https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg"
+SPOTIFY_GPG="https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg"
 SUBLIME_TEXT_GPG="https://download.sublimetext.com/sublimehq-pub.gpg"
 
 # Repositories
