@@ -15,8 +15,8 @@ Inside the root directory of the project, execute the script using the following
 commands.
 
 ```
-sudo chmod +x main.sh
-sudo ./main.sh
+sudo chmod +x src/main.sh
+sudo src/./main.sh
 ```
 
 ## Current List of Applications
