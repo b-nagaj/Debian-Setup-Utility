@@ -72,32 +72,32 @@ update_software_repositories() {
 # Install packages with apt
 install_apt_packages() {
     echo "Installing packages using apt..."
-    $INSTALL curl
-    $INSTALL flatpak
-    $INSTALL gnome-software-plugin-flatpak
-    $INSTALL nala
-    $INSTALL git
-    $INSTALL gitk
-    $INSTALL homebank
-    $INSTALL okular
-    $INSTALL libayatana-appindicator3-1
-    $INSTALL gir1.2-ayatanaappindicator3-0.1
-    $INSTALL gnome-shell-extension-appindicator
-    $INSTALL g++
-    $INSTALL make
-    $INSTALL libboost-all-dev
-    $INSTALL default-libmysqlclient-dev
-    $INSTALL ibcurl4-openssl-dev
-    $INSTALL libjsoncpp-dev
-    $INSTALL grub
-    $INSTALL linux-headers-amd64
-    $INSTALL proton-vpn-gnome-desktop
-    $INSTALL spotify-client
-    $INSTALL libwxgtk3.2-1
-    $INSTALL sublime-text
-    $INSTALL nvidia-driver
-    $INSTALL firmware-misc-nonfree
-    $INSTALL git-cola
+    $INSTALL curl -y
+    $INSTALL flatpak -y
+    $INSTALL gnome-software-plugin-flatpak -y
+    $INSTALL nala -y
+    $INSTALL git -y
+    $INSTALL gitk -y
+    $INSTALL homebank -y
+    $INSTALL okular -y
+    $INSTALL libayatana-appindicator3-1 -y
+    $INSTALL gir1.2-ayatanaappindicator3-0.1 -y
+    $INSTALL gnome-shell-extension-appindicator -y
+    $INSTALL g++ -y
+    $INSTALL make -y
+    $INSTALL libboost-all-dev -y
+    $INSTALL default-libmysqlclient-dev -y
+    $INSTALL ibcurl4-openssl-dev -y
+    $INSTALL libjsoncpp-dev -y
+    $INSTALL grub -y
+    $INSTALL linux-headers-amd64 -y
+    $INSTALL proton-vpn-gnome-desktop -y
+    $INSTALL spotify-client -y
+    $INSTALL libwxgtk3.2-1 -y
+    $INSTALL sublime-text -y
+    $INSTALL nvidia-driver -y
+    $INSTALL firmware-misc-nonfree -y
+    $INSTALL git-cola -y
     echo "Installed"
 }
 
@@ -105,7 +105,7 @@ install_apt_packages() {
 install_flatpaks() {
     echo "Installing packages using flatpak..."
     sudo flatpak remote-add --if-not-exists flathub $FLATHUB_SOURCE
-    sudo flatpak install flathub com.bitwarden.desktop
+    sudo flatpak install flathub com.bitwarden.desktop -y
     echo "Installed"
 }
 
