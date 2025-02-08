@@ -113,7 +113,6 @@ install_flatpaks() {
 install_source() {
     echo "Installing packages from source..."
     cd $DOWNLOADS_DIRECTORY
-    nvm install 22
     $UNPACK $(basename "$OBSIDIAN_SOURCE")
     $UNPACK $(basename "$PROTON_MAIL_SOURCE")
     $UNPACK $(basename "$PROTON_VPN_SOURCE")
