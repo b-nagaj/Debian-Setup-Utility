@@ -91,6 +91,7 @@ install_apt_packages() {
     $INSTALL libwxgtk3.2-1 -y
     $INSTALL sublime-text -y
     $INSTALL git-cola -y
+    $INSTALL nfs-common -y
     echo "Installed"
 }
 
