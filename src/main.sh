@@ -2,14 +2,17 @@
 
 # Runs each component of the setup utility in a sequential fashion
 
+# Store working directory
+CURRENT_WORKING_DIRECTORY=$(dirname $0)
+
 # Import local modules
-. ./packages/updatePackageManager.sh
-. ./packages/installPackages.sh
-. ./packages/purgePackages.sh
-. ./packages/upgradePackageManager.sh
-. ./configure/configureGit.sh
-. ./configure/configureGrub.sh
-. ./configure/configureNFS.sh
+. $CURRENT_WORKING_DIRECTORY/packages/updatePackageManager.sh
+. $CURRENT_WORKING_DIRECTORY/packages/installPackages.sh
+. $CURRENT_WORKING_DIRECTORY/packages/purgePackages.sh
+. $CURRENT_WORKING_DIRECTORY/packages/upgradePackageManager.sh
+. $CURRENT_WORKING_DIRECTORY/configure/configureGit.sh
+. $CURRENT_WORKING_DIRECTORY/configure/configureGrub.sh
+. $CURRENT_WORKING_DIRECTORY/configure/configureNFS.sh
 
 # Entry point
 main() {
