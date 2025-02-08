@@ -4,9 +4,9 @@
 
 # Constants
 CONFIGURE="git config --global"
-USERNAME = "b-nagaj"
-EMAIL = "bryce.nagaj@proton.me"
-EDITOR = "subl"
+USERNAME="b-nagaj"
+EMAIL="bryce.nagaj@proton.me"
+EDITOR="subl"
 
 # Customize global scope options
 configure_git_global_options(){

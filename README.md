@@ -26,7 +26,7 @@ sudo src/./main.sh
 - Nala
 - Git
 - GitK
-- NodeJS
+- Node Version Manager (NVM)
 - Brave
 - Bitwarden
 - Obsidian
@@ -35,7 +35,6 @@ sudo src/./main.sh
 - HomeBank
 - Spotify
 - DBeaver
-- VeraCrypt
 - Okular
 - GNOME Tray Icons
 - Sublime Text
@@ -46,6 +45,4 @@ sudo src/./main.sh
 - JsonCpp
 - MySQL
 - Grub
-- Linux Kernel Headers
-- Nvidia Drivers
 - Git Cola

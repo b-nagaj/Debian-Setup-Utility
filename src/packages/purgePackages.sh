@@ -19,7 +19,7 @@ initialize_purge_list() {
 		["GNOME_CHARACTERS"]="gnome-characters/stable"
 		["GNOME_CHESS"]="gnome-chess/stable"
 		["GNOME_CONTACTS"]="gnome-contacts/stable"
-		["EVOLUTION"]="evolution-data-server-common/stable evolution-data-server/stable"
+		["EVOLUTION"]="evolution evolution-exchange evolution-plugins evolution-common evolution-webcal"
 		["FIVE_OR_MORE"]="five-or-more/stable"
 		["FOUR_IN_A_ROW"]="four-in-a-row/stable"
 		["GNOME_NIBBLES"]="gnome-nibbles/stable"
@@ -28,9 +28,9 @@ initialize_purge_list() {
 		["GNOME_MAHJONGG"]="gnome-mahjongg/stable"
 		["GNOME_MAPS"]="gnome-maps/stable"
 		["GNOME_MINES"]="gnome-mines/stable"
-		["GNOME_MUSIC"]="gnome-maps/stable"
+		["GNOME_MUSIC"]="gnome-music/stable"
 		["QUADRAPASSEL"]="quadrapassel/stable"
-		["RYTHMBOX"]="librhythmbox-core10/stable rhythmbox-data/stable rhythmbox-plugin-cdrecorder/stable rhythmbox-plugins/stable rhythmbox/stable"
+		["RHYTHMBOX"]="rhythmbox*"
 		["ROBOTS"]="gnome-robots/stable"
 		["GNOME_SOUND_RECORDER"]="gnome-sound-recorder/stable"
 		["GNOME_SUDOKU"]="gnome-sudoku/stable"
@@ -48,7 +48,11 @@ purge() {
 	initialize_purge_list
 	for key in "${!purgeList[@]}"
 	do
-		$PURGE "${purgeList[$key]}" -y
+	    $PURGE "${purgeList[$key]}" -y
 	done
+	
+	# Re-install gnome-panel, since purging evolution uninstalls it
+	sudo apt install gnome-panel
+	
 	echo "Purged"
 }
