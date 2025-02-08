@@ -20,7 +20,6 @@ OBSIDIAN_SOURCE="https://github.com/obsidianmd/obsidian-releases/releases/downlo
 PROTON_MAIL_SOURCE="https://proton.me/download/mail/linux/1.6.1/ProtonMail-desktop-beta.deb"
 PROTON_VPN_SOURCE="https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.6_all.deb"
 DBEAVER_CE_SOURCE="https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb"
-VERACRYPT_SOURCE="https://launchpad.net/veracrypt/trunk/1.26.14/+download/veracrypt-1.26.14-Debian-12-amd64.deb"
 
 # GPG Keys
 SPOTIFY_GPG="https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg"
@@ -29,7 +28,6 @@ SUBLIME_TEXT_GPG="https://download.sublimetext.com/sublimehq-pub.gpg"
 # Repositories
 SPOTIFY_REPOSITORY="deb http://repository.spotify.com stable non-free"
 SUBLIME_TEXT_REPOSITORY="deb https://download.sublimetext.com/ apt/stable/"
-NVIDIA_DRIVERS_REPOSITORY="deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware"
 
 # Create a dedicated directory for software downloaded from the web
 create_downloads_directory() {
@@ -47,7 +45,6 @@ download_sources() {
     wget $PROTON_MAIL_SOURCE -P $DOWNLOADS_DIRECTORY
     wget $PROTON_VPN_SOURCE -P $DOWNLOADS_DIRECTORY
     wget $DBEAVER_CE_SOURCE -P $DOWNLOADS_DIRECTORY
-    wget $VERACRYPT_SOURCE -P $DOWNLOADS_DIRECTORY
     echo "Downloaded"
 }
 
@@ -64,7 +61,6 @@ update_software_repositories() {
     echo "Updating software repositories..."
     echo $SPOTIFY_REPOSITORY | sudo tee $APT_REPOSITORIES/spotify.list
     echo $SUBLIME_TEXT_REPOSITORY | sudo tee $APT_REPOSITORIES/sublime-text.list
-    echo $NVIDIA_DRIVERS_REPOSITORY >> $APT_REPOSITORIES
     $UPDATE
     echo "Updated"
 }
@@ -90,13 +86,10 @@ install_apt_packages() {
     $INSTALL ibcurl4-openssl-dev -y
     $INSTALL libjsoncpp-dev -y
     $INSTALL grub -y
-    $INSTALL linux-headers-amd64 -y
     $INSTALL proton-vpn-gnome-desktop -y
     $INSTALL spotify-client -y
     $INSTALL libwxgtk3.2-1 -y
     $INSTALL sublime-text -y
-    $INSTALL nvidia-driver -y
-    $INSTALL firmware-misc-nonfree -y
     $INSTALL git-cola -y
     echo "Installed"
 }
@@ -117,7 +110,6 @@ install_source() {
     $UNPACK $(basename "$PROTON_MAIL_SOURCE")
     $UNPACK $(basename "$PROTON_VPN_SOURCE")
     $UNPACK $(basename "$DBEAVER_CE_SOURCE")
-    $UNPACK $(basename "$VERACRYPT_SOURCE")
     cd ../
     echo "Installed"
 }
