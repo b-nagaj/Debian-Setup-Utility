@@ -27,6 +27,7 @@ main() {
 	configure_git_global_options
 	create_nfs_mount_point
 	mount_nfs
+	save_nfs_config
 	configure_grub
 	echo "Done!"
 }
