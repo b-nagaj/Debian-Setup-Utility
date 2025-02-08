@@ -19,7 +19,7 @@ initialize_purge_list() {
 		["GNOME_CHARACTERS"]="gnome-characters/stable"
 		["GNOME_CHESS"]="gnome-chess/stable"
 		["GNOME_CONTACTS"]="gnome-contacts/stable"
-		["EVOLUTION"]="evolution*"
+		["EVOLUTION"]="evolution evolution-exchange evolution-plugins evolution-common evolution-webcal"
 		["FIVE_OR_MORE"]="five-or-more/stable"
 		["FOUR_IN_A_ROW"]="four-in-a-row/stable"
 		["GNOME_NIBBLES"]="gnome-nibbles/stable"
@@ -50,5 +50,9 @@ purge() {
 	do
 	    $PURGE "${purgeList[$key]}" -y
 	done
+	
+	# Re-install gnome-panel, since purging evolution uninstalls it
+	sudo apt install gnome-panel
+	
 	echo "Purged"
 }
