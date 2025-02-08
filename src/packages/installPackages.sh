@@ -83,7 +83,7 @@ install_apt_packages() {
     $INSTALL make -y
     $INSTALL libboost-all-dev -y
     $INSTALL default-libmysqlclient-dev -y
-    $INSTALL ibcurl4-openssl-dev -y
+    $INSTALL openssl -y
     $INSTALL libjsoncpp-dev -y
     $INSTALL grub -y
     $INSTALL proton-vpn-gnome-desktop -y
