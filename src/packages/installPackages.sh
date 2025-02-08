@@ -13,7 +13,6 @@ TRUSTED_KEYRINGS="/etc/apt/trusted.gpg.d"
 APT_REPOSITORIES="/etc/apt/sources.list.d"
 
 # Sources
-FLATHUB_SOURCE="https://dl.flathub.org/repo/flathub.flatpakrepo"
 NODE_SOURCE="https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh"
 BRAVE_SOURCE="https://dl.brave.com/install.sh"
 OBSIDIAN_SOURCE="https://github.com/obsidianmd/obsidian-releases/releases/download/v1.7.7/obsidian_1.7.7_amd64.deb"
@@ -69,7 +68,7 @@ update_software_repositories() {
 install_apt_packages() {
     echo "Installing packages using apt..."
     $INSTALL curl -y
-    $INSTALL flatpak -y
+    $INSTALL snap -y
     $INSTALL gnome-software-plugin-flatpak -y
     $INSTALL nala -y
     $INSTALL git -y
@@ -95,11 +94,10 @@ install_apt_packages() {
     echo "Installed"
 }
 
-# Install packages with flatpak
-install_flatpaks() {
-    echo "Installing packages using flatpak..."
-    sudo flatpak remote-add --if-not-exists flathub $FLATHUB_SOURCE
-    sudo flatpak install flathub com.bitwarden.desktop -y
+# Install packages with snap
+install_snaps() {
+    echo "Installing packages using snap..."
+    sudo snap install bitwarden
     echo "Installed"
 }
 
@@ -123,7 +121,7 @@ install() {
     download_gpg_keys
     update_software_repositories
     install_apt_packages
-    install_flatpaks
+    install_snaps
     install_source
     echo "Installed"
 }
