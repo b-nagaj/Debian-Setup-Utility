@@ -25,7 +25,7 @@ SPOTIFY_GPG="https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg"
 SUBLIME_TEXT_GPG="https://download.sublimetext.com/sublimehq-pub.gpg"
 
 # Repositories
-SPOTIFY_REPOSITORY="deb http://repository.spotify.com stable non-free"
+SPOTIFY_REPOSITORY="deb https://repository.spotify.com stable non-free"
 SUBLIME_TEXT_REPOSITORY="deb https://download.sublimetext.com/ apt/stable/"
 
 # Create a dedicated directory for software downloaded from the web
