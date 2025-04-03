@@ -11,8 +11,6 @@ CURRENT_WORKING_DIRECTORY=$(dirname $0)
 . $CURRENT_WORKING_DIRECTORY/packages/purgePackages.sh
 . $CURRENT_WORKING_DIRECTORY/packages/upgradePackageManager.sh
 . $CURRENT_WORKING_DIRECTORY/configure/configureGit.sh
-. $CURRENT_WORKING_DIRECTORY/configure/configureGrub.sh
-. $CURRENT_WORKING_DIRECTORY/configure/configureNFS.sh
 
 # Entry point
 main() {
