@@ -72,8 +72,6 @@ install_apt_packages() {
     $INSTALL homebank -y
     $INSTALL okular -y
     $INSTALL libayatana-appindicator3-1 -y
-    $INSTALL gir1.2-ayatanaappindicator3-0.1 -y
-    $INSTALL gnome-shell-extension-appindicator -y
     $INSTALL g++ -y
     $INSTALL make -y
     $INSTALL libboost-all-dev -y
