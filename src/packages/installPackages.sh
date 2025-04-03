@@ -99,7 +99,6 @@ install_source() {
     cd $DOWNLOADS_DIRECTORY
     $UNPACK $(basename "$OBSIDIAN_SOURCE")
     $UNPACK $(basename "$PROTON_MAIL_SOURCE")
-    $UNPACK $(basename "$PROTON_VPN_SOURCE")
     $UNPACK $(basename "$DBEAVER_CE_SOURCE")
     cd ../
     echo "Installed"
