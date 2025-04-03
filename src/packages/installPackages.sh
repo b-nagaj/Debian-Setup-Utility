@@ -13,7 +13,6 @@ TRUSTED_KEYRINGS="/etc/apt/trusted.gpg.d"
 APT_REPOSITORIES="/etc/apt/sources.list.d"
 
 # Sources
-NODE_SOURCE="https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh"
 OBSIDIAN_SOURCE="https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.9/obsidian_1.8.9_amd64.deb"
 PROTON_MAIL_SOURCE="https://proton.me/download/mail/linux/1.8.0/ProtonMail-desktop-beta.deb"
 PROTON_PASS_SOURCE="https://proton.me/download/pass/linux/proton-pass_1.30.1_amd64.deb"
@@ -38,9 +37,6 @@ create_downloads_directory() {
 # Download packages from source
 download_sources() {
     echo "Downloading packages from source..."
-    curl -o- $NODE_SOURCE | bash
-    \. "$HOME/.nvm/nvm.sh"
-    nvm install 22
     wget $OBSIDIAN_SOURCE -P $DOWNLOADS_DIRECTORY
     wget $PROTON_MAIL_SOURCE -P $DOWNLOADS_DIRECTORY
     wget $PROTON_PASS_SOURCE -P $DOWNLOADS_DIRECTORY
