@@ -40,4 +40,5 @@ sudo src//main.sh
 - Bitwarden
 - Obsidian
 - Proton Mail
+- Proton Pass
 - DBeaver
