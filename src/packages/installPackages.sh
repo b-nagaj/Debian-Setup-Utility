@@ -67,7 +67,6 @@ install_apt_packages() {
     echo "Installing packages using apt..."
     $INSTALL curl -y
     $INSTALL snap -y
-    $INSTALL gnome-software-plugin-flatpak -y
     $INSTALL nala -y
     $INSTALL git -y
     $INSTALL gitk -y
