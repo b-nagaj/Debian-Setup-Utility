@@ -13,20 +13,22 @@ TRUSTED_KEYRINGS="/etc/apt/trusted.gpg.d"
 APT_REPOSITORIES="/etc/apt/sources.list.d"
 
 # Sources
-NODE_SOURCE="https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh"
-BRAVE_SOURCE="https://dl.brave.com/install.sh"
-OBSIDIAN_SOURCE="https://github.com/obsidianmd/obsidian-releases/releases/download/v1.7.7/obsidian_1.7.7_amd64.deb"
-PROTON_MAIL_SOURCE="https://proton.me/download/mail/linux/1.6.1/ProtonMail-desktop-beta.deb"
-PROTON_VPN_SOURCE="https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.6_all.deb"
+NODE_SOURCE="https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh"
+OBSIDIAN_SOURCE="https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.9/obsidian_1.8.9_amd64.deb"
+PROTON_MAIL_SOURCE="https://proton.me/download/mail/linux/1.8.0/ProtonMail-desktop-beta.deb"
+PROTON_PASS_SOURCE="https://proton.me/download/pass/linux/proton-pass_1.30.1_amd64.deb"
 DBEAVER_CE_SOURCE="https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb"
+BITWARDEN_SOURCE="https://bitwarden.com/download/?app=desktop&platform=linux&variant=deb"
 
 # GPG Keys
 SPOTIFY_GPG="https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg"
 SUBLIME_TEXT_GPG="https://download.sublimetext.com/sublimehq-pub.gpg"
+BRAVE_GPG="/usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg"
 
 # Repositories
-SPOTIFY_REPOSITORY="deb http://repository.spotify.com stable non-free"
+SPOTIFY_REPOSITORY="deb https://repository.spotify.com stable non-free"
 SUBLIME_TEXT_REPOSITORY="deb https://download.sublimetext.com/ apt/stable/"
+BRAVE_REPOSITORY="deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"
 
 # Create a dedicated directory for software downloaded from the web
 create_downloads_directory() {
@@ -39,10 +41,11 @@ create_downloads_directory() {
 download_sources() {
     echo "Downloading packages from source..."
     curl -o- $NODE_SOURCE | bash
-    curl -fsS $BRAVE_SOURCE | sh
+    \. "$HOME/.nvm/nvm.sh"
+    nvm install 22
     wget $OBSIDIAN_SOURCE -P $DOWNLOADS_DIRECTORY
     wget $PROTON_MAIL_SOURCE -P $DOWNLOADS_DIRECTORY
-    wget $PROTON_VPN_SOURCE -P $DOWNLOADS_DIRECTORY
+    wget $PROTON_PASS_SOURCE -P $DOWNLOADS_DIRECTORY
     wget $DBEAVER_CE_SOURCE -P $DOWNLOADS_DIRECTORY
     echo "Downloaded"
 }
@@ -52,6 +55,7 @@ download_gpg_keys() {
     echo "Downloading GPG keys..."
     curl -sS $SPOTIFY_GPG | sudo gpg --dearmor --yes -o $TRUSTED_KEYRINGS/spotify.gpg
     wget -qO - $SUBLIME_TEXT_GPG | gpg --dearmor | sudo tee $TRUSTED_KEYRINGS/sublimehq-archive.gpg > /dev/null
+    curl -fsSLo $BRAVE_SOURCE
     echo "Downloaded"
 }
 
@@ -60,6 +64,7 @@ update_software_repositories() {
     echo "Updating software repositories..."
     echo $SPOTIFY_REPOSITORY | sudo tee $APT_REPOSITORIES/spotify.list
     echo $SUBLIME_TEXT_REPOSITORY | sudo tee $APT_REPOSITORIES/sublime-text.list
+    echo $BRAVE_REPOSITORY | sudo tee $APT_REPOSITORIES/brave-browser-release.list
     $UPDATE
     echo "Updated"
 }
@@ -69,15 +74,11 @@ install_apt_packages() {
     echo "Installing packages using apt..."
     $INSTALL curl -y
     $INSTALL snap -y
-    $INSTALL gnome-software-plugin-flatpak -y
+    $INSTALL snapd -y
     $INSTALL nala -y
     $INSTALL git -y
-    $INSTALL gitk -y
     $INSTALL homebank -y
     $INSTALL okular -y
-    $INSTALL libayatana-appindicator3-1 -y
-    $INSTALL gir1.2-ayatanaappindicator3-0.1 -y
-    $INSTALL gnome-shell-extension-appindicator -y
     $INSTALL g++ -y
     $INSTALL make -y
     $INSTALL libboost-all-dev -y
@@ -85,12 +86,12 @@ install_apt_packages() {
     $INSTALL openssl -y
     $INSTALL libjsoncpp-dev -y
     $INSTALL grub -y
-    $INSTALL proton-vpn-gnome-desktop -y
     $INSTALL spotify-client -y
     $INSTALL libwxgtk3.2-1 -y
     $INSTALL sublime-text -y
     $INSTALL git-cola -y
     $INSTALL nfs-common -y
+    $INSTALL brave-browser
     echo "Installed"
 }
 
@@ -107,7 +108,7 @@ install_source() {
     cd $DOWNLOADS_DIRECTORY
     $UNPACK $(basename "$OBSIDIAN_SOURCE")
     $UNPACK $(basename "$PROTON_MAIL_SOURCE")
-    $UNPACK $(basename "$PROTON_VPN_SOURCE")
+    $UNPACK $(basename "$PROTON_PASS_SOURCE")
     $UNPACK $(basename "$DBEAVER_CE_SOURCE")
     cd ../
     echo "Installed"
