@@ -4,7 +4,7 @@
 
 # Constants
 CONFIGURE="git config --global"
-USERNAME="b-nagaj"
+USERNAME="Falcon9659"
 EMAIL="bryce.nagaj@proton.me"
 EDITOR="subl"
 
