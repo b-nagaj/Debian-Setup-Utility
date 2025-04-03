@@ -78,7 +78,6 @@ install_apt_packages() {
     $INSTALL openssl -y
     $INSTALL libjsoncpp-dev -y
     $INSTALL grub -y
-    $INSTALL proton-vpn-gnome-desktop -y
     $INSTALL spotify-client -y
     $INSTALL libwxgtk3.2-1 -y
     $INSTALL sublime-text -y
