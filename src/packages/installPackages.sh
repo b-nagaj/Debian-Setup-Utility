@@ -71,7 +71,6 @@ install_apt_packages() {
     $INSTALL git -y
     $INSTALL homebank -y
     $INSTALL okular -y
-    $INSTALL libayatana-appindicator3-1 -y
     $INSTALL g++ -y
     $INSTALL make -y
     $INSTALL libboost-all-dev -y
