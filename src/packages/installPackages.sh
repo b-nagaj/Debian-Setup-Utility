@@ -14,7 +14,6 @@ APT_REPOSITORIES="/etc/apt/sources.list.d"
 
 # Sources
 NODE_SOURCE="https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh"
-BRAVE_SOURCE="curl -fsS https://dl.brave.com/install.sh"
 OBSIDIAN_SOURCE="https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.9/obsidian_1.8.9_amd64.deb"
 PROTON_MAIL_SOURCE="https://proton.me/download/mail/linux/1.8.0/ProtonMail-desktop-beta.deb"
 PROTON_PASS_SOURCE="https://proton.me/download/pass/linux/proton-pass_1.30.1_amd64.deb"
@@ -24,10 +23,12 @@ BITWARDEN_SOURCE="https://bitwarden.com/download/?app=desktop&platform=linux&var
 # GPG Keys
 SPOTIFY_GPG="https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg"
 SUBLIME_TEXT_GPG="https://download.sublimetext.com/sublimehq-pub.gpg"
+BRAVE_GPG="/usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg"
 
 # Repositories
 SPOTIFY_REPOSITORY="deb https://repository.spotify.com stable non-free"
 SUBLIME_TEXT_REPOSITORY="deb https://download.sublimetext.com/ apt/stable/"
+BRAVE_REPOSITORY="deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"
 
 # Create a dedicated directory for software downloaded from the web
 create_downloads_directory() {
@@ -40,7 +41,8 @@ create_downloads_directory() {
 download_sources() {
     echo "Downloading packages from source..."
     curl -o- $NODE_SOURCE | bash
-    curl -fsS $BRAVE_SOURCE | sh
+    \. "$HOME/.nvm/nvm.sh"
+    nvm install 22
     wget $OBSIDIAN_SOURCE -P $DOWNLOADS_DIRECTORY
     wget $PROTON_MAIL_SOURCE -P $DOWNLOADS_DIRECTORY
     wget $PROTON_PASS_SOURCE -P $DOWNLOADS_DIRECTORY
@@ -53,6 +55,7 @@ download_gpg_keys() {
     echo "Downloading GPG keys..."
     curl -sS $SPOTIFY_GPG | sudo gpg --dearmor --yes -o $TRUSTED_KEYRINGS/spotify.gpg
     wget -qO - $SUBLIME_TEXT_GPG | gpg --dearmor | sudo tee $TRUSTED_KEYRINGS/sublimehq-archive.gpg > /dev/null
+    curl -fsSLo $BRAVE_SOURCE
     echo "Downloaded"
 }
 
@@ -61,6 +64,7 @@ update_software_repositories() {
     echo "Updating software repositories..."
     echo $SPOTIFY_REPOSITORY | sudo tee $APT_REPOSITORIES/spotify.list
     echo $SUBLIME_TEXT_REPOSITORY | sudo tee $APT_REPOSITORIES/sublime-text.list
+    echo $BRAVE_REPOSITORY | sudo tee $APT_REPOSITORIES/brave-browser-release.list
     $UPDATE
     echo "Updated"
 }
@@ -87,6 +91,7 @@ install_apt_packages() {
     $INSTALL sublime-text -y
     $INSTALL git-cola -y
     $INSTALL nfs-common -y
+    $INSTALL brave-browser
     echo "Installed"
 }
 
@@ -103,6 +108,7 @@ install_source() {
     cd $DOWNLOADS_DIRECTORY
     $UNPACK $(basename "$OBSIDIAN_SOURCE")
     $UNPACK $(basename "$PROTON_MAIL_SOURCE")
+    $UNPACK $(basename "$PROTON_PASS_SOURCE")
     $UNPACK $(basename "$DBEAVER_CE_SOURCE")
     cd ../
     echo "Installed"
