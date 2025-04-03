@@ -19,6 +19,8 @@ sudo chmod +x src/main.sh
 sudo src/./main.sh
 ```
 
+**NOTE** A reboot may be necessary depending on the [Current List of Applications](https://github.com/b-nagaj/Debian-Setup-Utility/tree/main?tab=readme-ov-file#current-list-of-applications) below
+
 ## Current List of Applications
 
 - Curl
