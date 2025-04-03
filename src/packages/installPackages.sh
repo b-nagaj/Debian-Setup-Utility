@@ -21,12 +21,10 @@ DBEAVER_CE_SOURCE="https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb"
 BITWARDEN_SOURCE="https://bitwarden.com/download/?app=desktop&platform=linux&variant=deb"
 
 # GPG Keys
-SPOTIFY_GPG="https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg"
 SUBLIME_TEXT_GPG="https://download.sublimetext.com/sublimehq-pub.gpg"
 BRAVE_GPG="/usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg"
 
 # Repositories
-SPOTIFY_REPOSITORY="deb https://repository.spotify.com stable non-free"
 SUBLIME_TEXT_REPOSITORY="deb https://download.sublimetext.com/ apt/stable/"
 BRAVE_REPOSITORY="deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"
 
@@ -53,7 +51,6 @@ download_sources() {
 # Download GPG keys
 download_gpg_keys() {
     echo "Downloading GPG keys..."
-    curl -sS $SPOTIFY_GPG | sudo gpg --dearmor --yes -o $TRUSTED_KEYRINGS/spotify.gpg
     wget -qO - $SUBLIME_TEXT_GPG | gpg --dearmor | sudo tee $TRUSTED_KEYRINGS/sublimehq-archive.gpg > /dev/null
     curl -fsSLo $BRAVE_SOURCE
     echo "Downloaded"
@@ -62,7 +59,6 @@ download_gpg_keys() {
 # Update software repositories
 update_software_repositories() {
     echo "Updating software repositories..."
-    echo $SPOTIFY_REPOSITORY | sudo tee $APT_REPOSITORIES/spotify.list
     echo $SUBLIME_TEXT_REPOSITORY | sudo tee $APT_REPOSITORIES/sublime-text.list
     echo $BRAVE_REPOSITORY | sudo tee $APT_REPOSITORIES/brave-browser-release.list
     $UPDATE
@@ -86,7 +82,6 @@ install_apt_packages() {
     $INSTALL openssl -y
     $INSTALL libjsoncpp-dev -y
     $INSTALL grub -y
-    $INSTALL spotify-client -y
     $INSTALL libwxgtk3.2-1 -y
     $INSTALL sublime-text -y
     $INSTALL git-cola -y
@@ -99,6 +94,7 @@ install_apt_packages() {
 install_snaps() {
     echo "Installing packages using snap..."
     sudo snap install bitwarden
+    sudo snap install spotify
     echo "Installed"
 }
 
