@@ -23,7 +23,6 @@ sudo src/./main.sh
 
 ## Current List of Applications
 
-- Node.JS
 - Brave
 - Obsidian
 - Proton Mail
