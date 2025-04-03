@@ -13,10 +13,10 @@ TRUSTED_KEYRINGS="/etc/apt/trusted.gpg.d"
 APT_REPOSITORIES="/etc/apt/sources.list.d"
 
 # Sources
-NODE_SOURCE="https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh"
-BRAVE_SOURCE="https://dl.brave.com/install.sh"
-OBSIDIAN_SOURCE="https://github.com/obsidianmd/obsidian-releases/releases/download/v1.7.7/obsidian_1.7.7_amd64.deb"
-PROTON_MAIL_SOURCE="https://proton.me/download/mail/linux/1.6.1/ProtonMail-desktop-beta.deb"
+NODE_SOURCE="https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh"
+BRAVE_SOURCE="curl -fsS https://dl.brave.com/install.sh"
+OBSIDIAN_SOURCE="https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.9/obsidian_1.8.9_amd64.deb"
+PROTON_MAIL_SOURCE="https://proton.me/download/mail/linux/1.8.0/ProtonMail-desktop-beta.deb"
 DBEAVER_CE_SOURCE="https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb"
 
 # GPG Keys
