@@ -16,7 +16,7 @@ commands.
 
 ```
 sudo chmod +x src/main.sh
-sudo src//main.sh
+sudo src/./main.sh
 ```
 
 ## Current List of Applications
