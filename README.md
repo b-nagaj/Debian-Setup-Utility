@@ -23,6 +23,12 @@ sudo src/./main.sh
 
 ## Current List of Applications
 
+- Node.JS
+- Brave
+- Obsidian
+- Proton Mail
+- Proton Pass
+- DBeaver Community Edition
 - Curl
 - Snap
 - Nala
@@ -40,7 +46,3 @@ sudo src/./main.sh
 - Git Cola
 - NFS Common
 - Bitwarden
-- Obsidian
-- Proton Mail
-- Proton Pass
-- DBeaver
