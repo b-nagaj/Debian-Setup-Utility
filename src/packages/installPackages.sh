@@ -17,7 +17,6 @@ NODE_SOURCE="https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh"
 BRAVE_SOURCE="https://dl.brave.com/install.sh"
 OBSIDIAN_SOURCE="https://github.com/obsidianmd/obsidian-releases/releases/download/v1.7.7/obsidian_1.7.7_amd64.deb"
 PROTON_MAIL_SOURCE="https://proton.me/download/mail/linux/1.6.1/ProtonMail-desktop-beta.deb"
-PROTON_VPN_SOURCE="https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.6_all.deb"
 DBEAVER_CE_SOURCE="https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb"
 
 # GPG Keys
@@ -42,7 +41,6 @@ download_sources() {
     curl -fsS $BRAVE_SOURCE | sh
     wget $OBSIDIAN_SOURCE -P $DOWNLOADS_DIRECTORY
     wget $PROTON_MAIL_SOURCE -P $DOWNLOADS_DIRECTORY
-    wget $PROTON_VPN_SOURCE -P $DOWNLOADS_DIRECTORY
     wget $DBEAVER_CE_SOURCE -P $DOWNLOADS_DIRECTORY
     echo "Downloaded"
 }
