@@ -69,7 +69,6 @@ install_apt_packages() {
     $INSTALL snap -y
     $INSTALL nala -y
     $INSTALL git -y
-    $INSTALL gitk -y
     $INSTALL homebank -y
     $INSTALL okular -y
     $INSTALL libayatana-appindicator3-1 -y
