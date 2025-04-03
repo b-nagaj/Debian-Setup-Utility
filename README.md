@@ -22,27 +22,22 @@ sudo src//main.sh
 ## Current List of Applications
 
 - Curl
-- Flatpak
+- Snap
 - Nala
 - Git
-- GitK
-- Node Version Manager (NVM)
-- Brave
+- HomeBank
+- Okular
+- GNU C/C++ Compiler
+- GNU Make
+- Boost
+- MySQL
+- OpenSSL
+- JsonCPP
+- Spotify
+- Sublime Text
+- Git Cola
+- NFS Common
 - Bitwarden
 - Obsidian
 - Proton Mail
-- Proton VPN
-- HomeBank
-- Spotify
 - DBeaver
-- Okular
-- GNOME Tray Icons
-- Sublime Text
-- G++
-- GNU Make
-- Boost
-- OpenSSL
-- JsonCpp
-- MySQL
-- Grub
-- Git Cola
