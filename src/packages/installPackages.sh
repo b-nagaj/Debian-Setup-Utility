@@ -19,6 +19,7 @@ OBSIDIAN_SOURCE="https://github.com/obsidianmd/obsidian-releases/releases/downlo
 PROTON_MAIL_SOURCE="https://proton.me/download/mail/linux/1.8.0/ProtonMail-desktop-beta.deb"
 PROTON_PASS_SOURCE="https://proton.me/download/pass/linux/proton-pass_1.30.1_amd64.deb"
 DBEAVER_CE_SOURCE="https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb"
+BITWARDEN_SOURCE="https://bitwarden.com/download/?app=desktop&platform=linux&variant=deb"
 
 # GPG Keys
 SPOTIFY_GPG="https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg"
@@ -69,6 +70,7 @@ install_apt_packages() {
     echo "Installing packages using apt..."
     $INSTALL curl -y
     $INSTALL snap -y
+    $INSTALL snapd -y
     $INSTALL nala -y
     $INSTALL git -y
     $INSTALL homebank -y
